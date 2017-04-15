@@ -22,3 +22,5 @@ file2tree generate a .txt file like this：
 in CMD：
 - use like "python file2tree.py -r d:/tree"
 - or use like "python file2tree.py --rootdir d:/tree"
+
+*also see [this]( https://github.com/guofei9987/MyKnowledge/tree/master/MyToolBox)*
