@@ -15,6 +15,9 @@ pip install file2tree
 file2tree
 ```
 
+output:
+
+
     ├── conf
     └── test
         └── app
