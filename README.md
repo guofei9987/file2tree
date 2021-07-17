@@ -1,8 +1,19 @@
 # file2tree
 file2tree
 
-### file2tree.py
-file2tree generate a .txt file like this：
+## install
+
+```bash
+pip install file2tree
+```
+
+
+### useage
+
+
+```bash
+file2tree
+```
 
     ├── conf
     └── test
@@ -18,9 +29,8 @@ file2tree generate a .txt file like this：
             └── styl
 
 
-### usage
-in CMD：
-- use like "python file2tree.py -r d:/tree"
-- or use like "python file2tree.py --rootdir d:/tree"
+also：
+```bash
+file2tree>filename.txt
+```
 
-*also see [this]( https://github.com/guofei9987/MyKnowledge/tree/master/MyToolBox)*

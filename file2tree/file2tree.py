@@ -2,13 +2,7 @@
 import os
 import os.path
 import sys
-import getopt
 import platform
-
-
-def usage():
-    print('[ * ] use like "python file2tree.py -r d:/tree"')
-    print('[ * ] or use like "python file2tree.py --rootdir d:/tree"')
 
 
 def get_tree(rootdir):
@@ -43,10 +37,8 @@ def get_deepth(path):
 
 
 def write_tree(rootdir):
-    file_tree = open(os.path.join(rootdir, "file2tree.txt"), "w")
     path_list = get_tree(rootdir)
     length = len(path_list)
-    # file_tree.write("├─"+os.path.split(rootdir)[1]+"\n")
     for index in range(1, length):
         tmp = path_list[index]
         deepth = get_deepth(tmp)
@@ -63,30 +55,17 @@ def write_tree(rootdir):
             for sp in range(0, deepth - 1):
                 space += "│  "
             line = space + "├─" + path_name + "\n"
-            file_tree.write(line)
+            sys.stdout.write(line)
 
         elif deepth_next < deepth:
             space = ""
             for sp in range(0, deepth - 1):
                 space += "│  "
             line = space + "└─" + path_name + "\n"
-            file_tree.write(line)
-    # print os.path.split(i)[1]
-    file_tree.close()
+            sys.stdout.write(line)
 
 
-opts, args = getopt.getopt(sys.argv[1:], "hr:", ["help", "rootdir="])
-if not opts:
-    usage()
-for op, value in opts:
-    if op == "-r" or op == "--rootdir":
-        rootdir = value
-        if not os.path.exists(rootdir):
-            print('[ * ] path "%s" does not exist,please check the param "-r"' % (rootdir))
-            sys.exit()
-        else:
-            rootdir = os.path.normcase(rootdir)
-            write_tree(rootdir.rstrip("\\"))
-    else:
-        usage()
-        sys.exit()
+def main():
+    rootdir = os.getcwd()
+    rootdir = os.path.normcase(rootdir)
+    write_tree(rootdir.rstrip("\\"))
