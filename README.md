@@ -9,7 +9,8 @@ pip install file2tree
 
 
 ### useage
-
+Step1: Run CMD in target folder;  
+Step2: Run the command below directly in CMD.
 
 ```bash
 file2tree
